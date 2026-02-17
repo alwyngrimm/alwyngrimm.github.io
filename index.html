@@ -97,5 +97,21 @@
       <a href="#">Arts For Chat</a>
     </div>
   </div>
+  <script>
+fetch('games_list.txt')
+  .then(response => response.text())
+  .then(text => {
+    const games = text.split('\n');
+    const list = document.getElementById('gamesList');
+
+    games.forEach(game => {
+      if (game.trim() !== '') {
+        const li = document.createElement('li');
+        li.textContent = game;
+        list.appendChild(li);
+      }
+    });
+  });
+</script>
 </body>
 </html>
