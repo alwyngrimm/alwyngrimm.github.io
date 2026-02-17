@@ -12,6 +12,10 @@ h1 {
 a {
     color: #ffd000;
 }
+    .highlight {
+    color: #ffd000;
+    font-weight: bold;
+}
 </style>
 <h1>Games Suggested by Chat</h1>
 
@@ -27,7 +31,12 @@ fetch('game_list.txt')
     games.reverse().forEach(game => {
         if (game.trim() !== '') {
             const li = document.createElement('li');
-            li.textContent = game;
+            const parts = game.split(' ');
+const firstWord = parts.shift();
+
+li.innerHTML =
+    `<span class="highlight">${firstWord}</span> ${parts.join(' ')}`;
+
             list.appendChild(li);
         }
     });
