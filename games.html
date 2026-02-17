@@ -3,7 +3,7 @@
 <ul id="gamesList"></ul>
 
 <script>
-fetch('games_list.txt')
+fetch('game_list.txt')
 .then(response => response.text())
 .then(text => {
     const games = text.split('\n');
