@@ -35,8 +35,6 @@
   h1:hover {
     text-shadow: 0 0 45px rgba(255, 215, 120, 0.7);
   }
-<h2>Games Suggested</h2>
-<ul id="gamesList"></ul>
   p {
     margin-top: 1rem;
     opacity: 0.7;
@@ -98,21 +96,6 @@
       <a href="#">Arts For Chat</a>
     </div>
   </div>
-  <script>
-fetch('games_list.txt')
-  .then(response => response.text())
-  .then(text => {
-    const games = text.split('\n');
-    const list = document.getElementById('gamesList');
-
-    games.forEach(game => {
-      if (game.trim() !== '') {
-        const li = document.createElement('li');
-        li.textContent = game;
-        list.appendChild(li);
-      }
-    });
-  });
-</script>
+ 
 </body>
 </html>
