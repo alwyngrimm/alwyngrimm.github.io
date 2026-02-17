@@ -1,33 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Games Suggested</title>
+<meta charset="UTF-8">
+<title>Games Suggested</title>
 
-    <style>
-        body {
-            background-color: #111;
-            color: #fff;
-            font-family: Arial, sans-serif;
-            padding: 40px;
-        }
-
-        h1 {
-            color: #ffd000;
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        li {
-            background: #222;
-            margin: 8px 0;
-            padding: 10px;
-            border-radius: 6px;
-        }
-    </style>
+<style>
+body {
+    background-color: #111;
+    color: white;
+    font-family: Arial, sans-serif;
+    padding: 40px;
+}
+h1 {
+    color: #ffd000;
+}
+li {
+    background: #222;
+    margin: 8px 0;
+    padding: 10px;
+    border-radius: 6px;
+}
+</style>
 </head>
 
 <body>
@@ -38,21 +31,20 @@
 
 <script>
 fetch('games_list.txt')
-  .then(response => response.text())
-  .then(text => {
+.then(response => response.text())
+.then(text => {
     const games = text.split('\n');
     const list = document.getElementById('gamesList');
 
     games.reverse().forEach(game => {
-      if (game.trim() !== '') {
-        const li = document.createElement('li');
-        li.textContent = game;
-        list.appendChild(li);
-      }
+        if (game.trim() !== '') {
+            const li = document.createElement('li');
+            li.textContent = game;
+            list.appendChild(li);
+        }
     });
-  });
+});
 </script>
 
 </body>
 </html>
-
