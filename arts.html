@@ -1,55 +1,37 @@
 <style>
- .art-gallery {
+body {
+    background-color: #111;
+    color: white;
+    font-family: Arial, sans-serif;
+    padding: 40px;
+}
+
+h1 {
+    color: #ffd000;
+}
+
+/* ===== ART GRID ===== */
+
+.art-gallery {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
+    gap: 20px;
 }
 
 .art-item {
-    overflow: hidden;
-    border-radius: 8px;
+    text-align: center;
 }
 
 .art-item img {
     width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-    cursor: pointer;
+    max-width: 180px;   /* controls size */
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.25s ease;
 }
 
 .art-item img:hover {
-    transform: scale(1.15);
-}
-
-
-/* Lightbox */
-#lightbox {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.9);
-    justify-content: center;
-    align-items: center;
-}
-
-#lightbox img {
-    max-width: 90%;
-    max-height: 90%;
-}
-
-  .art-gallery {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-.art-item img {
-    max-width: 100%;
-    border-radius: 8px;
+    transform: scale(1.1);
 }
 
 .art-item p {
@@ -57,34 +39,27 @@
     color: #ffd000;
 }
 
+/* mobile */
+@media (max-width: 800px) {
+    .art-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 </style>
-<h1>Arts For Beautiful People From My Chat </h1>
+
+
+<h1>Arts For Beautiful People From My Chat</h1>
 
 <div class="art-gallery">
 
     <div class="art-item">
-        <img src="assets/art/yetidragon.gif" alt="Art 1">
-        <p>Art for TheGentlemenyeti</p>
+        <img src="assets/art/moth.gif">
+        <p>Art by ChatUser</p>
     </div>
 
     <div class="art-item">
-        <img src="assets/art/moth.gif" alt="Art 2">
-        <p>Dwarf sketch during stream</p>
+        <img src="assets/art/yetidragon.gif">
+        <p>Another amazing piece</p>
     </div>
 
 </div>
-<script>
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-
-document.querySelectorAll('.art-item img').forEach(img => {
-    img.addEventListener('click', () => {
-        lightbox.style.display = 'flex';
-        lightboxImg.src = img.src;
-    });
-});
-
-lightbox.addEventListener('click', () => {
-    lightbox.style.display = 'none';
-});
-</script>
